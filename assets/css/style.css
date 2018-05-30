@@ -1,0 +1,36 @@
+body {
+    background-color: #D0F4EA;
+    text-align: center;
+    font-family: 'Amatic SC';
+    font-size: 26px;
+}
+button {
+    padding: 5px 20px 5px 20px;
+    margin: 20px 0px 10px 0px;
+    background-color: #B1CC74;
+    color: #545F66;
+    font-family: 'Amatic SC';
+    font-size: 26px;
+}
+
+button:hover {
+    background-color: #E8FCC2;
+}
+
+button:active {
+    box-shadow: 5px 5px 5px #829399;
+}
+
+button:focus {
+    outline: 0;
+}
+
+input[type=text]{
+    font-size: 26px;
+    font-family: 'Amatic SC';
+}
+
+img {
+    margin: 15px 0px 10px 0px;
+    box-shadow: 5px 5px 5px #829399;
+}
