@@ -61,7 +61,6 @@ $(document).ready(function(){
     var feelings = [""];
 
         $("#addFeeling").on("click", function(){
-            
 
             var feelingButton = $("#feeling-input").val();
 
@@ -75,13 +74,14 @@ $(document).ready(function(){
 
             queryURL = "https://api.giphy.com/v1/gifs/search?q="+feelingButton+"&api_key=MxL6tgoRhc5ss8xjIztn5QhemdJZVMdc&limit=10&rating=g&rating=pg";
             console.log(feelingButton);
+
             $.ajax({url: queryURL, method: "GET"})
         
             .done(function(response){
     
             for (var i = 0; i < response.data.length; i++) {
     
-                var feelingDiv = $("<div>") //.attr("src", response.data[i].images.fixed_height_still.url);
+                var feelingDiv = $("<div>")
     
                 var p = $("<p>");
                 
@@ -91,7 +91,7 @@ $(document).ready(function(){
     
                 feelingImage.addClass("feel");
                 
-                feelingImage.attr("src", response.data[i].images.fixed_height.url);
+                feelingImage.attr("src", response.data[i].images.fixed_height_still.url);
     
                 feelingImage.attr("data-still", response.data[i].images.fixed_height_still.url);
     
@@ -106,21 +106,21 @@ $(document).ready(function(){
                 $("#displayGif").prepend(feelingDiv);
             }
             
-                $(".feel").on("click", function(event){
+                $("img").on("click", function(event){
                 
                     var state = $(this).attr("data-state");
             
                     var src = $(this).attr("src");
                     
-                    if(state === "still"){
+                    if(state === "animate"){
                     
-                        $(this).attr('src', $(this).data('animate'));
-                        $(this).attr('data-state', 'animate');
+                        $(this).attr('src', $(this).data("still"));
+                        $(this).attr('data-state', "still");
     
                     } else {
                     
-                        $(this).attr('src', $(this).data('still'));
-                        $(this).attr('data-state', 'still');
+                        $(this).attr('src', $(this).data("animate"));
+                        $(this).attr('data-state', "animate");
                     }
                 });
             });
@@ -128,6 +128,7 @@ $(document).ready(function(){
             $("#feeling-input").val("");
 
             return false;
+            
 
         })
             
