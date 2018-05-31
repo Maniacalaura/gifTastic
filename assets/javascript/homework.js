@@ -1,7 +1,7 @@
 //this function starts as soon the page loads
 $(document).ready(function(){
     //when a button is pressed this function starts
-    $('button').on('click', function(){
+    $(".btn").on('click', function(){
         var f = $(this).data('feeling');
         var queryURL = "https://api.giphy.com/v1/gifs/search?q="+f+"&api_key=MxL6tgoRhc5ss8xjIztn5QhemdJZVMdc&limit=10&rating=g&rating=pg";
         //here we're linking to the giphy API and using &limit=10 &rating=g &rating=pg so only 10 gifs will load, and their ratings will be either g or pg.
@@ -59,6 +59,7 @@ $(document).ready(function(){
     });
         //here we'll add new buttons based on user input
         $("#addFeeling").on("click", function(){
+
             //this var will grab the value of the users input from the form
             var feelingButton = $("#feeling-input").val();
             //and make a button for it
